@@ -154,6 +154,7 @@ Makefile: ../HexoBlogHelper/HexoBlogHelper.pro D:/Programmes/Qt/6.0.3/mingw81_64
 		D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/qt_config.prf \
 		D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/win32-g++/qmake.conf \
 		D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/exclusive_builds.prf \
 		D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/toolchain.prf \
 		D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/default_pre.prf \
@@ -183,8 +184,8 @@ Makefile: ../HexoBlogHelper/HexoBlogHelper.pro D:/Programmes/Qt/6.0.3/mingw81_64
 		D:/Programmes/Qt/6.0.3/mingw81_64/lib/Qt6Gui.prl \
 		D:/Programmes/Qt/6.0.3/mingw81_64/lib/Qt6Core.prl \
 		D:/Programmes/Qt/6.0.3/mingw81_64/lib/Qt6EntryPoint.prl \
-		.qmake.stash \
-		D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/build_pass.prf
+		D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/build_pass.prf \
+		../HexoBlogHelper/res.qrc
 	$(QMAKE) -o Makefile ..\HexoBlogHelper\HexoBlogHelper.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/spec_pre.prf:
 D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/device_config.prf:
@@ -270,6 +271,7 @@ D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/qt_functions.prf:
 D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/qt_config.prf:
 D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/win32-g++/qmake.conf:
 D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/exclusive_builds.prf:
 D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/toolchain.prf:
 D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/default_pre.prf:
@@ -299,8 +301,8 @@ D:/Programmes/Qt/6.0.3/mingw81_64/lib/Qt6Widgets.prl:
 D:/Programmes/Qt/6.0.3/mingw81_64/lib/Qt6Gui.prl:
 D:/Programmes/Qt/6.0.3/mingw81_64/lib/Qt6Core.prl:
 D:/Programmes/Qt/6.0.3/mingw81_64/lib/Qt6EntryPoint.prl:
-.qmake.stash:
 D:/Programmes/Qt/6.0.3/mingw81_64/mkspecs/features/build_pass.prf:
+../HexoBlogHelper/res.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\HexoBlogHelper\HexoBlogHelper.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

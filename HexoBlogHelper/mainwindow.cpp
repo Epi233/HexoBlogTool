@@ -3,24 +3,35 @@
 #include <io.h>
 #include <iostream>
 
-
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    // Style
-    this->setStyleSheet("QWidget{font-size:20px");
-
     // Path Select Bind
     connect(ui->pathSelectButton, &QPushButton::clicked, this, &MainWindow::onButtonClickedSelectPath);
+
+    ui->itemList->setAlignment(Qt::AlignTop);
+
+    // Style
+    setStypeSheet(":/qss/generalStyle.qss");
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::setStypeSheet(QString resourceFildPath)
+{
+    QFile styleFile(resourceFildPath);
+    styleFile.open(QFile::ReadOnly);
+    if (styleFile.isOpen())
+    {
+        qApp->setStyleSheet(styleFile.readAll());
+        styleFile.close();
+    }
 }
 
 void MainWindow::onButtonClickedSelectPath()
@@ -50,9 +61,6 @@ void MainWindow::onButtonClickedSelectPath()
         verticalLayout->addLayout(hBoxLayoutPtr);
     }
 }
-
-
-
 
 void MainWindow::getFileNames(std::string path, std::vector<SelectItem*>& files, const std::string suffix)
 {
@@ -107,6 +115,8 @@ SelectItem::SelectItem(std::string name)
 
     _hBoxLayout->addWidget(_checkBox);
     _hBoxLayout->addWidget(_label);
+
+    _hBoxLayout->setAlignment(Qt::AlignLeft);
 }
 
 SelectItem::~SelectItem()

@@ -12,11 +12,11 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -29,7 +29,7 @@ public:
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QPushButton *pathSelectButton;
-    QTextEdit *pathSelectTextArea;
+    QLineEdit *pathSelectTextArea;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *itemList;
     QMenuBar *menubar;
@@ -39,36 +39,36 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(461, 583);
+        MainWindow->resize(600, 800);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayoutWidget = new QWidget(centralwidget);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(-1, -1, 451, 72));
+        horizontalLayoutWidget->setGeometry(QRect(80, 0, 451, 41));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         pathSelectButton = new QPushButton(horizontalLayoutWidget);
         pathSelectButton->setObjectName(QString::fromUtf8("pathSelectButton"));
+        pathSelectButton->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout->addWidget(pathSelectButton);
 
-        pathSelectTextArea = new QTextEdit(horizontalLayoutWidget);
+        pathSelectTextArea = new QLineEdit(horizontalLayoutWidget);
         pathSelectTextArea->setObjectName(QString::fromUtf8("pathSelectTextArea"));
-        pathSelectTextArea->setReadOnly(true);
 
         horizontalLayout->addWidget(pathSelectTextArea);
 
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(0, 70, 451, 461));
+        verticalLayoutWidget->setGeometry(QRect(80, 50, 451, 671));
         itemList = new QVBoxLayout(verticalLayoutWidget);
         itemList->setObjectName(QString::fromUtf8("itemList"));
         itemList->setContentsMargins(0, 0, 0, 0);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 461, 21));
+        menubar->setGeometry(QRect(0, 0, 600, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

@@ -53,5 +53,7 @@ private:
     void onButtonClickedSelectPath();
     void getFileNames(std::string path, std::vector<SelectItem*>& files, const std::string suffix);
 
+    void setStypeSheet(QString resourceFildPath);
+
 };
 #endif // MAINWINDOW_H
