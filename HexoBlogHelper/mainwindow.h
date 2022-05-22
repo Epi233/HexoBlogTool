@@ -5,19 +5,37 @@
 #include <vector>
 #include <QFileDialog>
 #include <QCheckBox>
+#include <QLayout>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+
+namespace Ui
+{
+    class MainWindow;
+}
+
 QT_END_NAMESPACE
 
 class SelectItem
 {
 public:
-    SelectItem(QString fileName);
+    SelectItem(std::string name);
+    ~SelectItem();
+
+public:
+    void setCheck(bool check);
+    bool isCheck() const;
+    const std::string getFileName() const;
+    QHBoxLayout* getHBoxLayout();
+
 
 private:
+    QHBoxLayout* _hBoxLayout;
     QCheckBox* _checkBox;
-    QString _fileName;
+    QLabel* _label;
+    std::string _fileName;
+    bool _check;
 };
 
 class MainWindow : public QMainWindow
@@ -30,10 +48,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    std::vector<std::string> _fileNames;
+    std::vector<SelectItem*> _targetFiles;
 
     void onButtonClickedSelectPath();
-    void getFileNames(std::string path, std::vector<std::string>& files);
+    void getFileNames(std::string path, std::vector<SelectItem*>& files, const std::string suffix);
 
 };
 #endif // MAINWINDOW_H

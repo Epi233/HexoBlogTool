@@ -44,7 +44,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayoutWidget = new QWidget(centralwidget);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(-1, -1, 451, 41));
+        horizontalLayoutWidget->setGeometry(QRect(-1, -1, 451, 72));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -61,7 +61,7 @@ public:
 
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(0, 40, 451, 401));
+        verticalLayoutWidget->setGeometry(QRect(0, 70, 451, 461));
         itemList = new QVBoxLayout(verticalLayoutWidget);
         itemList->setObjectName(QString::fromUtf8("itemList"));
         itemList->setContentsMargins(0, 0, 0, 0);
