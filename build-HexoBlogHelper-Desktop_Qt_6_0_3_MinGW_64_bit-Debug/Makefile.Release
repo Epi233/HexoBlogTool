@@ -618,7 +618,13 @@ release/mainwindow.o: ../HexoBlogHelper/mainwindow.cpp ../HexoBlogHelper/mainwin
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtCore/qeventloop.h \
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qguiapplication.h \
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qinputmethod.h \
-		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/QHBoxLayout \
+		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/QGridLayout \
+		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/QLineEdit \
+		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/qlineedit.h \
+		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qtextcursor.h \
+		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qtextformat.h \
+		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qpen.h \
+		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qtextoption.h \
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/QMenuBar \
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/qmenubar.h \
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/qmenu.h \
@@ -627,14 +633,6 @@ release/mainwindow.o: ../HexoBlogHelper/mainwindow.cpp ../HexoBlogHelper/mainwin
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/qpushbutton.h \
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/QStatusBar \
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/qstatusbar.h \
-		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/QTextEdit \
-		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/qtextedit.h \
-		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
-		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qtextdocument.h \
-		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qtextoption.h \
-		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qtextcursor.h \
-		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qtextformat.h \
-		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtGui/qpen.h \
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/QVBoxLayout \
 		D:/Programmes/Qt/6.0.3/mingw81_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\HexoBlogHelper\mainwindow.cpp

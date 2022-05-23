@@ -20,22 +20,21 @@ QT_END_NAMESPACE
 class SelectItem
 {
 public:
-    SelectItem(std::string name);
+    SelectItem(std::wstring fileName, std::wstring filePath);
     ~SelectItem();
 
 public:
-    void setCheck(bool check);
-    bool isCheck() const;
-    const std::string getFileName() const;
+    const std::wstring getFileName() const;
+    const std::wstring getFilePath() const;
     QHBoxLayout* getHBoxLayout();
-
+    QCheckBox* getCheckBox();
 
 private:
     QHBoxLayout* _hBoxLayout;
     QCheckBox* _checkBox;
     QLabel* _label;
-    std::string _fileName;
-    bool _check;
+    std::wstring _fileName;
+    std::wstring _filPath;
 };
 
 class MainWindow : public QMainWindow
@@ -48,12 +47,26 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    std::wstring _targetPath;
+
     std::vector<SelectItem*> _targetFiles;
 
-    void onButtonClickedSelectPath();
-    void getFileNames(std::string path, std::vector<SelectItem*>& files, const std::string suffix);
+    QPushButton* _checkAllButton;
+    QPushButton* _generateButton;
+
+private:
+    void onButtonClickedSelectSourcePath();
+    void onButtonClickedSelectTargetPath();
+    void onButtonClickedCheckAll();
+    void onButtonClickedGenerateFile();
+    void getFileNames(std::wstring path, std::vector<SelectItem*>& files, const std::wstring suffix);
 
     void setStypeSheet(QString resourceFildPath);
+
+private:
+    bool copyFileToPath(QString sourceDir ,QString toDir, bool coverFileIfExist);
+    bool copyDirectoryFiles(const QString &fromDir, const QString &toDir, bool coverFileIfExist);
 
 };
 #endif // MAINWINDOW_H
