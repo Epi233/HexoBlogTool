@@ -138,6 +138,7 @@ void MainWindow::onButtonClickedGenerateFile()
         std::wstring fileName = targetItems[i]->getFileName();
         std::wstring filePath = targetItems[i]->getFilePath();
 
+        // Copy File
         std::wstring fileSourceFullPath;
         fileSourceFullPath.assign(filePath).append(L"/").append(fileName);
         std::wstring fileTargetFullPath;
@@ -153,7 +154,7 @@ void MainWindow::onButtonClickedGenerateFile()
 
         ui->logTextEdit->append(fileCopyLog);
 
-        // find resource
+        // Copy Resource
         std::wstring resourceSourceFullPath;
         resourceSourceFullPath.assign(filePath).append(L"/").append(L"Resource");
         std::wstring resourceTargetFullPath;
@@ -174,6 +175,10 @@ void MainWindow::onButtonClickedGenerateFile()
 
             ui->logTextEdit->append(resourceCopyLog);
         }
+
+        // Process File
+        if (copyFileSuccess)
+            processFile(QString::fromStdWString(fileTargetFullPath));
     }
 }
 
@@ -244,6 +249,97 @@ bool MainWindow::copyDirectoryFiles(const QString &fromDir, const QString &toDir
             }
         }
     }
+    return true;
+}
+
+void MainWindow::processFile(QString filePath)
+{
+    QString strAll;
+    QStringList strList;
+    QFile readFile(filePath);
+    if(readFile.open((QIODevice::ReadOnly | QIODevice::Text)))
+    {
+        //把文件所有信息读出来
+        QTextStream stream(&readFile);
+        strAll=stream.readAll();
+    }
+    readFile.close();
+
+    QFile writeFile(filePath);
+    if(writeFile.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        QTextStream stream(&writeFile);
+        strList = strAll.split("\n");
+
+        for(int i = 0; i < strList.count(); i++)
+        {
+            QString str = strList.at(i);
+            QString result;
+            if(isStrMarkDownImage(str, &result))
+            {
+                str.replace(0, str.length(), result);
+                stream << str << '\n';
+            }
+            else
+            {
+                if(i == strList.count() - 1)
+                {
+                   stream << strList.at(i);
+                }
+                else
+                {
+                   stream << strList.at(i) << '\n';
+                }
+            }
+        }
+    }
+
+    writeFile.close();
+}
+
+bool MainWindow::isStrMarkDownImage(QString lineContent, QString* result)
+{
+    if (lineContent.length() < 10)
+        return false;
+
+    // 需要![开头
+    if (lineContent[0] != '!' || lineContent[1] != '[')
+        return false;
+
+    // 找到]
+    int indexTitleRight = lineContent.indexOf(']');
+    if (indexTitleRight == -1)
+        return false;
+
+    // []内为图标题
+    QString title = indexTitleRight == 2 ? "" : lineContent.mid(2, indexTitleRight - 2);
+
+    // 找到Resource/
+    int indexResourceRight = lineContent.indexOf("Resource/");
+    if (indexResourceRight == -1)
+    {
+        indexResourceRight = lineContent.indexOf("Resource\\");
+    }
+
+    if (indexResourceRight == -1)
+        return false;
+
+    // Resource/下个位置是图名称开头
+    int nameLeft = indexResourceRight + 9;
+    if (nameLeft >= lineContent.length())
+        return false;
+
+    // 图名称结束
+    int nameRight = lineContent.lastIndexOf(')');
+    if (nameRight == -1)
+        return false;
+
+    if (nameRight <= nameLeft)
+        return false;
+
+    QString name = lineContent.mid(nameLeft, nameRight - nameLeft);
+
+    *result = "![" + title + "](" + name + ")";
     return true;
 }
 

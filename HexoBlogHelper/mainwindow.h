@@ -60,13 +60,15 @@ private:
     void onButtonClickedSelectTargetPath();
     void onButtonClickedCheckAll();
     void onButtonClickedGenerateFile();
-    void getFileNames(std::wstring path, std::vector<SelectItem*>& files, const std::wstring suffix);
 
     void setStypeSheet(QString resourceFildPath);
 
 private:
     bool copyFileToPath(QString sourceDir ,QString toDir, bool coverFileIfExist);
     bool copyDirectoryFiles(const QString &fromDir, const QString &toDir, bool coverFileIfExist);
+    void getFileNames(std::wstring path, std::vector<SelectItem*>& files, const std::wstring suffix);
+    void processFile(QString sourceDir);
+    bool isStrMarkDownImage(QString lineContent, QString* result);
 
 };
 #endif // MAINWINDOW_H
