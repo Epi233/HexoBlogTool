@@ -4,6 +4,7 @@
 #include <iostream>
 #include <QMessageBox>
 #include <vector>
+#include <QResource>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->itemList->setAlignment(Qt::AlignTop);
 
     // Style
-    setStypeSheet(":/qss/generalStyle.qss");
+    setStyleSheet(":resource/qss/generalStyle.qss");
 
     _generateButton = nullptr;
     _checkAllButton = nullptr;
@@ -29,9 +30,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::setStypeSheet(QString resourceFildPath)
+void MainWindow::setStyleSheet(QString resourceFilePath)
 {
-    QFile styleFile(resourceFildPath);
+    QFile styleFile(resourceFilePath);
     styleFile.open(QFile::ReadOnly);
     if (styleFile.isOpen())
     {

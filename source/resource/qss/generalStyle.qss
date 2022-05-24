@@ -7,13 +7,13 @@ QWidget
 /*按钮正常状态*/
 QPushButton
 {
-    background-color:rgba(198,198,198);/*背景色*/
-    min-width: 55px;
+    background-color:rgb(198,198,198);/*背景色*/
+    min-width: 65px;
     max-height: 25px;
     border-style:solid;/*边框样式 solid实线 none无边框 inset/outset 3D边框*/
     border-width:1px; /*边框宽度像素*/
     border-radius:5px;/*边框圆角半径像素*/
-    border-color:rgba(205,205,205);/*边框颜色*/
+    border-color:rgb(205,205,205);/*边框颜色*/
     font-size:14px;/*字体 字体大小*/
     color: black;/*字体颜色*/
     text-align: center;
@@ -22,7 +22,7 @@ QPushButton
 QPushButton:pressed
 {
     background-color:rgb(142, 146, 126);/*背景色*/
-    border-color:rgba(205,205,205);/*边框颜色*/
+    border-color:rgb(205,205,205);/*边框颜色*/
     border-style:solid;/*边框样式 solid实线 none无边框 inset/outset 3D边框*/
     color: black;/*字体颜色*/
 }
@@ -30,7 +30,7 @@ QPushButton:pressed
 QPushButton:hover
 {
     background-color:rgb(160, 160, 144);/*背景色*/
-    border-color:rgba(205,205,205);/*边框颜色*/
+    border-color:rgb(205,205,205);/*边框颜色*/
     color: black;/*字体颜色*/
 }
 QLineEdit
@@ -41,7 +41,7 @@ QLineEdit
     border-style:solid;/*边框样式 solid实线 none无边框 inset/outset 3D边框*/
     border-width:1px; /*边框宽度像素*/
     border-radius:5px;/*边框圆角半径像素*/
-    border-color:rgba(205,205,205);/*边框颜色*/
+    border-color:rgb(205,205,205);/*边框颜色*/
     font-size:12pt;/*字体 字体大小*/
     color: black;/*字体颜色*/
     padding:6px;/*填衬*/
@@ -58,7 +58,7 @@ QComboBox
     border-style:solid;/*边框样式 solid实线 none无边框 inset/outset 3D边框*/
     border-width:4px;/*边框宽度像素*/
     border-radius:10px;/*边框圆角半径像素*/
-    border-color:rgba(205,205,205);/*边框颜色*/
+    border-color:rgb(205,205,205);/*边框颜色*/
     min-height:35px; /*最小高度*/
     font-size:12pt;
 }
@@ -123,7 +123,7 @@ QTabBar::tab:selected
 QTableView,QTableWidget{
     background-color: rgb(240,240,240); /*背景色*/
     color: black;/*字体颜色*/
-    selection-background-color:rgba(192,221,244);/*背景色*/;/*点击选中颜色*/
+    selection-background-color:rgb(192,221,244);/*背景色*/;/*点击选中颜色*/
     border:1px solid #E0DDDC;/*边框为1像素，灰色*/
     gridline-color:lightgray;/*这个是表格的格子线的颜色，为亮灰*/
     font:bold 12pt;/*字体 字体大小*/
@@ -140,7 +140,7 @@ QTreeWidget,QTreeView
 {
     background-color: rgb(240,240,240); /*背景色*/
     color: rgb(79,129,168);/*字体颜色*/
-    selection-background-color:rgba(5,23,200);/*点击选中颜色*/
+    selection-background-color:rgb(5,23,200);/*点击选中颜色*/
     font-size:12pt;/*字体大小*/
 }
 /*收起状态*/

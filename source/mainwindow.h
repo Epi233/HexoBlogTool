@@ -61,7 +61,7 @@ private:
     void onButtonClickedCheckAll();
     void onButtonClickedGenerateFile();
 
-    void setStypeSheet(QString resourceFildPath);
+    void setStyleSheet(QString resourceFilePath);
 
 private:
     bool copyFileToPath(QString sourceDir ,QString toDir, bool coverFileIfExist);
